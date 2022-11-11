@@ -1,151 +1,132 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:txapita/helpers/screen_navigation.dart';
-import 'package:txapita/helpers/style.dart';
-import 'package:txapita/providers/user.dart';
-import 'package:txapita/screens/registration.dart';
-import 'package:txapita/widgets/custom_text.dart';
-import 'package:txapita/widgets/loading.dart';
 
-import 'home.dart';
+class MyLogin extends StatefulWidget {
+  const MyLogin({Key? key}) : super(key: key);
 
-class LoginScreen extends StatefulWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _MyLoginState createState() => _MyLoginState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  final _key = GlobalKey<ScaffoldState>();
-
+class _MyLoginState extends State<MyLogin> {
   @override
   Widget build(BuildContext context) {
-    final authProvider = Provider.of<UserProvider>(context);
-
-    return Scaffold(
-      key: _key,
-      backgroundColor: Colors.deepOrange,
-      body: authProvider.status == Status.Authenticating
-          ? Loading()
-          : SingleChildScrollView(
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    color: white,
-                    height: 100,
-                  ),
-                  Container(
-                    color: white,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Image.asset(
-                          "images/lg.png",
-                          width: 230,
-                          height: 230,
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    height: 60,
-                    color: white,
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(color: white),
-                          borderRadius: BorderRadius.circular(5)),
-                      child: Padding(
-                        padding: EdgeInsets.only(left: 10),
-                        child: TextFormField(
-                          controller: authProvider.email,
-                          decoration: InputDecoration(
-                              hintStyle: TextStyle(color: white),
-                              border: InputBorder.none,
-                              hintText: "Email",
-                              icon: Icon(
-                                Icons.email,
-                                color: white,
-                              )),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(color: white),
-                          borderRadius: BorderRadius.circular(5)),
-                      child: Padding(
-                        padding: EdgeInsets.only(left: 10),
-                        child: TextFormField(
-                          controller: authProvider.password,
-                          decoration: InputDecoration(
-                              hintStyle: TextStyle(color: white),
-                              border: InputBorder.none,
-                              hintText: "Password",
-                              icon: Icon(
-                                Icons.lock,
-                                color: white,
-                              )),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: GestureDetector(
-                      onTap: () async {
-                        if (!await authProvider.signIn()) {
-                          _key.currentState.showSnackBar(
-                              SnackBar(content: Text("Login failed!")));
-                          return;
-                        }
-                        authProvider.clearController();
-                        changeScreenReplacement(context, MyHomePage());
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: black,
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Padding(
-                          padding: EdgeInsets.only(top: 10, bottom: 10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              CustomText(
-                                text: "Login",
-                                color: white,
-                                size: 22,
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage('assets/login.png'), fit: BoxFit.cover),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Stack(
+          children: [
+            Container(),
+            Container(
+              padding: EdgeInsets.only(left: 35, top: 130),
+              child: Text(
+                'Welcome\nBack',
+                style: TextStyle(color: Colors.greenAccent, fontSize: 33),
+              ),
+            ),
+            SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.5),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(left: 35, right: 35),
+                      child: Column(
+                        children: [
+                          TextField(
+                            style: TextStyle(color: Colors.black),
+                            decoration: InputDecoration(
+                                fillColor: Colors.grey.shade100,
+                                filled: true,
+                                hintText: "Email",
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                )),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          TextField(
+                            style: TextStyle(),
+                            obscureText: true,
+                            decoration: InputDecoration(
+                                fillColor: Colors.grey.shade100,
+                                filled: true,
+                                hintText: "Password",
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                )),
+                          ),
+                          SizedBox(
+                            height: 40,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Sign in',
+                                style: TextStyle(
+                                    fontSize: 27, fontWeight: FontWeight.w700),
+                              ),
+                              CircleAvatar(
+                                radius: 30,
+                                backgroundColor: Color(0xff4c505b),
+                                child: IconButton(
+                                    color: Colors.white,
+                                    onPressed: () {},
+                                    icon: Icon(
+                                      Icons.arrow_forward,
+                                    )),
                               )
                             ],
                           ),
-                        ),
+                          SizedBox(
+                            height: 40,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, 'register');
+                                },
+                                child: Text(
+                                  'Sign Up',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                      decoration: TextDecoration.underline,
+                                      color: Color(0xff4c505b),
+                                      fontSize: 18),
+                                ),
+                                style: ButtonStyle(),
+                              ),
+                              TextButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    'Forgot Password',
+                                    style: TextStyle(
+                                      decoration: TextDecoration.underline,
+                                      color: Color(0xff4c505b),
+                                      fontSize: 18,
+                                    ),
+                                  )),
+                            ],
+                          )
+                        ],
                       ),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      changeScreen(context, RegistrationScreen());
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        CustomText(
-                          text: "Register here",
-                          size: 20,
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+                    )
+                  ],
+                ),
               ),
             ),
+          ],
+        ),
+      ),
     );
   }
 }

@@ -1,5 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:hamro_taxi/screens/login.dart';
+import 'package:hamro_taxi/screens/registration.dart';
 import 'firebase_options.dart';
 
 void main() {
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
       home: AnimatedSplashScreen(
           duration: 3000,
           splash: 'images/splash.png',
-          nextScreen: MyHomePage(title: "Hamro Taxi"),
+          nextScreen: MyLogin(),
           splashTransition: SplashTransition.scaleTransition,
           backgroundColor: Colors.black),
     );

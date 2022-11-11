@@ -1,184 +1,172 @@
 import 'package:flutter/material.dart';
 
-class RegistationScreen extends StatefulWidget {
-  const RegistationScreen({super.key});
+class MyRegister extends StatefulWidget {
+  const MyRegister({Key? key}) : super(key: key);
 
   @override
-  State<RegistationScreen> createState() => _RegistationScreenState();
+  _MyRegisterState createState() => _MyRegisterState();
 }
 
-class _RegistationScreenState extends State<RegistationScreen> {
+class _MyRegisterState extends State<MyRegister> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Container(
-            color: white,
-            height: 100,
-          ),
-          Container(
-            color: white,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Image.asset(
-                  "images/lg.png",
-                  width: 230,
-                  height: 120,
-                ),
-              ],
-            ),
-          ),
-          Container(
-            height: 40,
-            color: white,
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(12),
-            child: Container(
-              decoration: BoxDecoration(
-                  border: Border.all(color: white),
-                  borderRadius: BorderRadius.circular(5)),
-              child: Padding(
-                padding: EdgeInsets.only(left: 10),
-                child: TextFormField(
-                  controller: authProvider.name,
-                  decoration: InputDecoration(
-                      hintStyle: TextStyle(color: white),
-                      border: InputBorder.none,
-                      labelStyle: TextStyle(color: white),
-                      labelText: "Name",
-                      hintText: "eg: Santos Enoque",
-                      icon: Icon(
-                        Icons.person,
-                        color: white,
-                      )),
-                ),
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage('assets/register.png'), fit: BoxFit.cover),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
+        body: Stack(
+          children: [
+            Container(
+              padding: EdgeInsets.only(left: 35, top: 30),
+              child: Text(
+                'Create\nAccount',
+                style: TextStyle(color: Colors.greenAccent, fontSize: 33),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(12),
-            child: Container(
-              decoration: BoxDecoration(
-                  border: Border.all(color: white),
-                  borderRadius: BorderRadius.circular(5)),
-              child: Padding(
-                padding: EdgeInsets.only(left: 10),
-                child: TextFormField(
-                  controller: authProvider.email,
-                  decoration: InputDecoration(
-                      hintStyle: TextStyle(color: white),
-                      border: InputBorder.none,
-                      labelStyle: TextStyle(color: white),
-                      labelText: "Email",
-                      hintText: "santos@enoque.com",
-                      icon: Icon(
-                        Icons.email,
-                        color: white,
-                      )),
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(12),
-            child: Container(
-              decoration: BoxDecoration(
-                  border: Border.all(color: white),
-                  borderRadius: BorderRadius.circular(5)),
-              child: Padding(
-                padding: EdgeInsets.only(left: 10),
-                child: TextFormField(
-                  controller: authProvider.phone,
-                  decoration: InputDecoration(
-                      hintStyle: TextStyle(color: white),
-                      border: InputBorder.none,
-                      labelStyle: TextStyle(color: white),
-                      labelText: "Phone",
-                      hintText: "+91 3213452",
-                      icon: Icon(
-                        Icons.phone,
-                        color: white,
-                      )),
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(12),
-            child: Container(
-              decoration: BoxDecoration(
-                  border: Border.all(color: white),
-                  borderRadius: BorderRadius.circular(5)),
-              child: Padding(
-                padding: EdgeInsets.only(left: 10),
-                child: TextFormField(
-                  controller: authProvider.password,
-                  decoration: InputDecoration(
-                      hintStyle: TextStyle(color: white),
-                      border: InputBorder.none,
-                      labelStyle: TextStyle(color: white),
-                      labelText: "Password",
-                      hintText: "at least 6 digits",
-                      icon: Icon(
-                        Icons.lock,
-                        color: white,
-                      )),
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: GestureDetector(
-              onTap: () async {
-                if (!await authProvider.signUp()) {
-                  _key.currentState.showSnackBar(
-                      SnackBar(content: Text("Registration failed!")));
-                  return;
-                }
-                authProvider.clearController();
-                changeScreenReplacement(context, MyHomePage());
-              },
+            SingleChildScrollView(
               child: Container(
-                decoration: BoxDecoration(
-                    color: black, borderRadius: BorderRadius.circular(5)),
-                child: Padding(
-                  padding: EdgeInsets.only(top: 10, bottom: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      CustomText(
-                        text: "Register",
-                        color: white,
-                        size: 22,
-                      )
-                    ],
-                  ),
+                padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.28),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(left: 35, right: 35),
+                      child: Column(
+                        children: [
+                          TextField(
+                            style: TextStyle(color: Colors.white),
+                            decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                hintText: "Name",
+                                hintStyle: TextStyle(color: Colors.white),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                )),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          TextField(
+                            style: TextStyle(color: Colors.white),
+                            decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                hintText: "Email",
+                                hintStyle: TextStyle(color: Colors.white),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                )),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          TextField(
+                            style: TextStyle(color: Colors.white),
+                            obscureText: true,
+                            decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                hintText: "Password",
+                                hintStyle: TextStyle(color: Colors.white),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                )),
+                          ),
+                          SizedBox(
+                            height: 40,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Sign Up',
+                                style: TextStyle(
+                                    color: Colors.green,
+                                    fontSize: 27,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                              CircleAvatar(
+                                radius: 30,
+                                backgroundColor: Color(0xff4c505b),
+                                child: IconButton(
+                                    color: Colors.white,
+                                    onPressed: () {},
+                                    icon: Icon(
+                                      Icons.arrow_forward,
+                                    )),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 40,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, 'login');
+                                },
+                                child: Text(
+                                  'Sign In',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                      decoration: TextDecoration.underline,
+                                      color: Colors.white,
+                                      fontSize: 18),
+                                ),
+                                style: ButtonStyle(),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    )
+                  ],
                 ),
               ),
             ),
-          ),
-          GestureDetector(
-            onTap: () {
-              changeScreen(context, LoginScreen());
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                CustomText(
-                  text: "Login here",
-                  size: 20,
-                ),
-              ],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
