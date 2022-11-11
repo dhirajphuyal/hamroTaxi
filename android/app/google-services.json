@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "609723965758",
+    "project_id": "hamro-taxi-e4239",
+    "storage_bucket": "hamro-taxi-e4239.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:609723965758:android:8cf51c10854b0161a00c6f",
+        "android_client_info": {
+          "package_name": "com.example.hamro_taxi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "609723965758-3tlbjf37cacdju3pfn4kb5k97joka96p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnlXyKMk6z_lWhh2b9GaD_tDA9vaCgCD4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "609723965758-3tlbjf37cacdju3pfn4kb5k97joka96p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "609723965758-4nl0fo0gasr9gvelt8vna4bqer0lhpvv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.hamroTaxi"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
