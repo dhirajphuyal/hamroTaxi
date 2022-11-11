@@ -49,6 +49,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '609723965758',
     projectId: 'hamro-taxi-e4239',
     authDomain: 'hamro-taxi-e4239.firebaseapp.com',
+    databaseURL: 'https://hamro-taxi-e4239-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'hamro-taxi-e4239.appspot.com',
     measurementId: 'G-W1HHGLZEJE',
   );
@@ -58,17 +59,19 @@ class DefaultFirebaseOptions {
     appId: '1:609723965758:android:8cf51c10854b0161a00c6f',
     messagingSenderId: '609723965758',
     projectId: 'hamro-taxi-e4239',
+    databaseURL: 'https://hamro-taxi-e4239-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'hamro-taxi-e4239.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAC5yApxPUoL5qOrZpK84FR07PifwVf_RE',
-    appId: '1:609723965758:ios:5b05494864d144b5a00c6f',
+    appId: '1:609723965758:ios:d775d9bca349503ca00c6f',
     messagingSenderId: '609723965758',
     projectId: 'hamro-taxi-e4239',
+    databaseURL: 'https://hamro-taxi-e4239-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'hamro-taxi-e4239.appspot.com',
-    iosClientId: '609723965758-4nl0fo0gasr9gvelt8vna4bqer0lhpvv.apps.googleusercontent.com',
-    iosBundleId: 'com.example.hamroTaxi',
+    iosClientId: '609723965758-3npfie3mma9qvqdeb3c3apo13vaktofv.apps.googleusercontent.com',
+    iosBundleId: 'com.example.h',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
@@ -76,6 +79,7 @@ class DefaultFirebaseOptions {
     appId: '1:609723965758:ios:5b05494864d144b5a00c6f',
     messagingSenderId: '609723965758',
     projectId: 'hamro-taxi-e4239',
+    databaseURL: 'https://hamro-taxi-e4239-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'hamro-taxi-e4239.appspot.com',
     iosClientId: '609723965758-4nl0fo0gasr9gvelt8vna4bqer0lhpvv.apps.googleusercontent.com',
     iosBundleId: 'com.example.hamroTaxi',
