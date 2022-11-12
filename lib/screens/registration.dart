@@ -8,13 +8,14 @@ class MyRegister extends StatefulWidget {
 }
 
 class _MyRegisterState extends State<MyRegister> {
+  static const String idScreen = "register";
+
+  TextEditingController nameTextEditingController = TextEditingController();
+  TextEditingController phoneTextEditingController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage('assets/register.png'), fit: BoxFit.cover),
-      ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
@@ -42,6 +43,7 @@ class _MyRegisterState extends State<MyRegister> {
                       child: Column(
                         children: [
                           TextField(
+                            controller: nameTextEditingController,
                             style: TextStyle(color: Colors.white),
                             decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
@@ -66,6 +68,7 @@ class _MyRegisterState extends State<MyRegister> {
                             height: 30,
                           ),
                           TextField(
+                            controller: phoneTextEditingController,
                             style: TextStyle(color: Colors.white),
                             decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
@@ -80,7 +83,7 @@ class _MyRegisterState extends State<MyRegister> {
                                     color: Colors.black,
                                   ),
                                 ),
-                                hintText: "Email",
+                                hintText: "Phone",
                                 hintStyle: TextStyle(color: Colors.white),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
@@ -117,13 +120,7 @@ class _MyRegisterState extends State<MyRegister> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                'Sign Up',
-                                style: TextStyle(
-                                    color: Colors.green,
-                                    fontSize: 27,
-                                    fontWeight: FontWeight.w700),
-                              ),
+                              SizedBox(),
                               CircleAvatar(
                                 radius: 30,
                                 backgroundColor: Color(0xff4c505b),

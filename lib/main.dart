@@ -98,3 +98,12 @@ enum PageTransitionType {
   rightToLeftWithFade,
   leftToRightWithFade,
 }
+
+// enum SplashTransition {
+//   slideTransition,
+//   scaleTransition,
+//   rotationTransition,
+//   sizeTransition,
+//   fadeTransition,
+//   decoratedBoxTransition
+// }
